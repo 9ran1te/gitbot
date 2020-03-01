@@ -1,4 +1,5 @@
 import os
+import json
 
 
 def filepath(filename):
@@ -9,7 +10,13 @@ def filepath(filename):
 
 
 def load_config():
-    pass
+    try:
+        with open(filepath('config.json')) as f:
+            config = json.load(f)
+    except:
+        config = []
+    finally:
+        return config
 
 
 def main():
